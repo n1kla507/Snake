@@ -26,9 +26,6 @@ public class MainFenster extends Application {
     private boolean botFlag = false;
     private Difficultie difficultie = Difficultie.EASY;
 
-    /* das Spiel wird über maven plugin gestartet unter:
-       Maven -> Plugins -> javafx -> javafx:run
-     */
     @Override
     public void start(Stage mainstage) throws Exception {
         this.mainstage = mainstage;
@@ -45,6 +42,8 @@ public class MainFenster extends Application {
         start(mainstage);
     }
 
+
+    // das Spiel wird über Launcher Klasse gestartet
     public static void main(String[] args) {
         launch(args);
     }
