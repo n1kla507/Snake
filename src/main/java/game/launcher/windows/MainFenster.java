@@ -176,9 +176,16 @@ public class MainFenster extends Application {
         apfel.setText("Äpfel: " + 0);
         apfel.setId("apfel");
 
+        Label highscore = new Label();
+        highscore.setFont(new Font(20));
+        highscore.setTextFill(Color.WHITE);
+        highscore.setText("Highscore: " + 0);
+        highscore.setId("highscore");
+
         Canvas snakeCanvas = new Canvas(canvasSize, canvasSize);
 
         box.getChildren().add(apfel);
+        box.getChildren().add(highscore);
         box.getChildren().add(snakeCanvas);
         box.setAlignment(Pos.CENTER);
         box.setSpacing(30);

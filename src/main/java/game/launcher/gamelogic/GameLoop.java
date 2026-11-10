@@ -37,6 +37,8 @@ public class GameLoop {
     private final Bot bot;
     private final Snake snake;
     private int punkte;
+    private int highscore;
+    private Label highscoreLabel;
     private Label apfel;
 
     public GameLoop(GraphicsContext gc, int fieldSize, boolean botFlag, Difficultie difficultie) {
@@ -49,6 +51,7 @@ public class GameLoop {
         snakeScene = gc.getCanvas().getScene();
         inputHandler = new InputHandler(snakeScene, snake);
         apfel = (Label) snakeScene.lookup("#apfel");
+        highscoreLabel = (Label) snakeScene.lookup("#highscore");
 
         punkte = 0;
         drawingHandler.drawMap();
@@ -149,6 +152,10 @@ public class GameLoop {
         gameover = isGameOver(point);
         if (gameover) {
             System.out.println("BORDEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEER");
+            if (punkte > highscore){
+                highscore = punkte;
+                highscoreLabel.setText("Highscore: " + highscore);
+            }
             stopTimer();
         }
 
