@@ -11,6 +11,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -25,6 +26,7 @@ public class MainFenster extends Application {
     private GraphicsContext graphicsContext;
     private boolean botFlag = false;
     private Difficultie difficultie = Difficultie.EASY;
+    private TextField playerName;
 
     @Override
     public void start(Stage mainstage) throws Exception {
@@ -73,7 +75,13 @@ public class MainFenster extends Application {
         gameName.setFont(new Font(30));
         gameName.setTextFill(Color.WHITE);
 
+        playerName = new TextField("Name");
+        playerName.setMaxWidth(150);
+        playerName.setAlignment(Pos.CENTER);
+        playerName.setId("playerName");
+
         vBox.getChildren().add(gameName);
+        vBox.getChildren().add(playerName);
         vBox.getChildren().add(fieldSizeValue);
         vBox.getChildren().add(btn);
         vBox.setAlignment(Pos.CENTER);
@@ -145,7 +153,8 @@ public class MainFenster extends Application {
 
     public void startSnakeWindow() {
         Scene snakeScene = new Scene(createSnakeWindow(), 550, 650);
-        GameLoop gameLoop = new GameLoop(graphicsContext, canvasSize, botFlag, difficultie);
+
+        GameLoop gameLoop = new GameLoop(graphicsContext, canvasSize, botFlag, difficultie, playerName.getText());
         gameLoop.startingBoard();
 
         snakeStage = new Stage();

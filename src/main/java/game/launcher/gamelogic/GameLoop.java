@@ -36,13 +36,15 @@ public class GameLoop {
     private final boolean botFlag;
     private final Bot bot;
     private final Snake snake;
+    private final String playerName;
     private int punkte;
     private int highscore;
     private Label highscoreLabel;
     private Label apfel;
 
-    public GameLoop(GraphicsContext gc, int fieldSize, boolean botFlag, Difficultie difficultie) {
+    public GameLoop(GraphicsContext gc, int fieldSize, boolean botFlag, Difficultie difficultie, String playerName) {
         snake = new Snake(fieldSize);
+        this.playerName = playerName;
         this.botFlag = botFlag;
         if (botFlag) {
             bot = new Bot(difficultie, snake);
@@ -50,6 +52,7 @@ public class GameLoop {
         drawingHandler = new DrawingHandler(gc, fieldSize, botFlag, bot, snake);
         snakeScene = gc.getCanvas().getScene();
         inputHandler = new InputHandler(snakeScene, snake);
+        inputHandler.locked = true;
         apfel = (Label) snakeScene.lookup("#apfel");
         highscoreLabel = (Label) snakeScene.lookup("#highscore");
 
