@@ -1,9 +1,9 @@
-package game.launcher.gamelogic;
+package game.gamelogic;
 
-import game.launcher.enums.Direction;
-import game.launcher.entities.Apple;
-import game.launcher.entities.Bot;
-import game.launcher.entities.Snake;
+import game.enums.Direction;
+import game.entities.Apple;
+import game.entities.Bot;
+import game.entities.Snake;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 

@@ -1,4 +1,4 @@
-package game.launcher.gamelogic;
+package game.gamelogic;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;

@@ -1,4 +1,4 @@
-package game.launcher.enums;
+package game.enums;
 
 import java.util.concurrent.ThreadLocalRandom;
 

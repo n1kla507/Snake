@@ -1,4 +1,4 @@
-package game.launcher.enums;
+package game.enums;
 
 public enum MenuAction {
     RESUME,

@@ -1,7 +1,7 @@
-package game.launcher.gamelogic;
+package game.gamelogic;
 
-import game.launcher.enums.Direction;
-import game.launcher.entities.Snake;
+import game.enums.Direction;
+import game.entities.Snake;
 import javafx.scene.Scene;
 
 public class InputHandler {

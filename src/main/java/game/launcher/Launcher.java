@@ -1,4 +1,6 @@
-package game.launcher.windows;
+package game.launcher;
+
+import game.windows.MainFenster;
 
 public class Launcher {
     public static void main(String[] args){

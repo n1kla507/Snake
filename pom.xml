@@ -37,6 +37,12 @@
             <version>${javafx.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.15.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -48,7 +54,7 @@
                 <version>0.0.8</version>
                 <configuration>
                     <!-- Tauschen Sie dies gegen den Pfad zu Ihrer Hauptklasse aus -->
-                    <mainClass>game.launcher.windows.MainFenster</mainClass>
+                    <mainClass>game.windows.MainFenster</mainClass>
                 </configuration>
             </plugin>
         </plugins>

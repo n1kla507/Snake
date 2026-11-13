@@ -1,12 +1,12 @@
-package game.launcher.gamelogic;
+package game.gamelogic;
 
-import game.launcher.enums.Difficultie;
-import game.launcher.enums.Direction;
-import game.launcher.enums.MenuAction;
-import game.launcher.windows.GameOver;
-import game.launcher.entities.Apple;
-import game.launcher.entities.Bot;
-import game.launcher.entities.Snake;
+import game.enums.Difficultie;
+import game.enums.Direction;
+import game.enums.MenuAction;
+import game.windows.GameOver;
+import game.entities.Apple;
+import game.entities.Bot;
+import game.entities.Snake;
 import javafx.animation.AnimationTimer;
 import javafx.application.Platform;
 import javafx.event.EventHandler;

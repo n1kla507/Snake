@@ -1,6 +1,6 @@
-package game.launcher.entities;
+package game.entities;
 
-import game.launcher.enums.Direction;
+import game.enums.Direction;
 
 import java.awt.*;
 import java.util.ArrayList;

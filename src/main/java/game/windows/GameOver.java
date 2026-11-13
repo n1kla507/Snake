@@ -1,6 +1,6 @@
-package game.launcher.windows;
+package game.windows;
 
-import game.launcher.enums.MenuAction;
+import game.enums.MenuAction;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;

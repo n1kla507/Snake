@@ -1,7 +1,7 @@
-package game.launcher.windows;
+package game.windows;
 
-import game.launcher.enums.Difficultie;
-import game.launcher.gamelogic.GameLoop;
+import game.enums.Difficultie;
+import game.gamelogic.GameLoop;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
