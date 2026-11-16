@@ -1,5 +1,6 @@
 package game.gamelogic;
 
+import game.entities.Player;
 import game.enums.Difficultie;
 import game.enums.Direction;
 import game.enums.MenuAction;
@@ -16,6 +17,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
+import statistics.parser.JsonParser;
 
 import java.awt.*;
 
@@ -24,19 +26,20 @@ public class GameLoop {
     private final DrawingHandler drawingHandler;
     private final InputHandler inputHandler;
     private final Scene snakeScene;
+    private final JsonParser parser;
     private final int time = 200_000_000;
 //    private final int time = 800_000_000;
     //aktualisierung (tick) jede sekunde (200_000_000 is normale tick rate)
-    private boolean gameover = false;
-    private Point lastPoint = null;
+    private boolean gameover;
+    private Point lastPoint;
     private Direction lastDirection = Direction.RIGHT;
-    private Point lastPointBot = null;
+    private Point lastPointBot;
     private Direction lastDirectionBot = Direction.RIGHT;
-    public boolean menuFlag = false;
+    public boolean menuFlag;
     private final boolean botFlag;
     private final Bot bot;
     private final Snake snake;
-    private final String playerName;
+    private final Player player;
     private int punkte;
     private int highscore;
     private Label highscoreLabel;
@@ -44,7 +47,13 @@ public class GameLoop {
 
     public GameLoop(GraphicsContext gc, int fieldSize, boolean botFlag, Difficultie difficultie, String playerName) {
         snake = new Snake(fieldSize);
-        this.playerName = playerName;
+
+        player = new Player(playerName, 0);
+        parser = new JsonParser();
+        if (!parser.isPlayer(playerName)){
+            parser.createPlayerJson(player);
+        }
+
         this.botFlag = botFlag;
         if (botFlag) {
             bot = new Bot(difficultie, snake);
@@ -154,10 +163,13 @@ public class GameLoop {
 
         gameover = isGameOver(point);
         if (gameover) {
-            System.out.println("BORDEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEER");
             if (punkte > highscore){
                 highscore = punkte;
                 highscoreLabel.setText("Highscore: " + highscore);
+                if (highscore > player.getHighscore()){
+                    player.setHighscore(highscore);
+                    parser.writeScore(player);
+                }
             }
             stopTimer();
         }
